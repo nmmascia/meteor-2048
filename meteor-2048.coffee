@@ -8,3 +8,6 @@ class @Board
              [0,0,0,0],
              [0,0,0,0]
            ]
+
+class @Tile
+  constructor: () ->
