@@ -1,3 +1,10 @@
 class @Board
   constructor: () ->
-    @grid = [[],[],[],[]]
+    @grid = @_createGrid()
+
+  _createGrid: () ->
+    grid = [ [0,0,0,0],
+             [0,0,0,0],
+             [0,0,0,0],
+             [0,0,0,0]
+           ]
