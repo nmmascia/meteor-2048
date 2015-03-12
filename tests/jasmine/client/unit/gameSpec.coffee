@@ -10,3 +10,9 @@ describe 'Board', () ->
   it 'should have 4 elements per row in grid', () ->
     board.grid.forEach (row) ->
       expect(row.length).toEqual(4)
+
+describe 'Tile', () ->
+  tile = new Tile()
+
+  it 'should exist', () ->
+    expect(tile).toBeTruthy
