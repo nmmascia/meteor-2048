@@ -32,3 +32,8 @@ describe 'Tile', () ->
   it 'can increment its value', () ->
     valuedTile.increment()
     expect(valuedTile.value).toEqual(4)
+
+  it 'can reset its value', () ->
+    valuedTile.decrement()
+    expect(valuedTile.isActive()).toBe(false)
+    expect(valuedTile.value).toEqual(0)
