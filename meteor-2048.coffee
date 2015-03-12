@@ -18,3 +18,6 @@ class @Tile
 
   increment: () ->
     @value = @value * 2
+
+  decrement: () ->
+    @value = 0
