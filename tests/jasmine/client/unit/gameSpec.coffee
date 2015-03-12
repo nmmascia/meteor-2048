@@ -1,3 +1,8 @@
 describe 'Board', () ->
+  board = new Board()
+
   it 'should exist', () ->
-    expect(new Board()).toBeTruthy
+    expect(board).toBeTruthy
+
+  it 'should have a 4X4 grid', () ->
+    expect(board.grid.length).toEqual(4)
