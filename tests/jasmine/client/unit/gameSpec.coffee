@@ -25,6 +25,10 @@ describe 'Tile', () ->
     expect(tile.value).toEqual(0)
     expect(valuedTile.value).toEqual(2)
 
+  it 'active if greater than 0', () ->
+    expect(tile.isActive()).toBe(false)
+    expect(valuedTile.isActive()).toBe(true)
+
   it 'can increment its value', () ->
     valuedTile.increment()
     expect(valuedTile.value).toEqual(4)
