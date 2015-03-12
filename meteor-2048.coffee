@@ -10,4 +10,8 @@ class @Board
            ]
 
 class @Tile
-  constructor: () ->
+  constructor: (@value) ->
+    @value ?= 0
+
+  increment: () ->
+    @value = @value * 2
