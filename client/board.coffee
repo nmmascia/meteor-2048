@@ -6,6 +6,15 @@ class @Board
     tiles = (new Tile for [1..16])
     grid = (tiles.splice(0,4) while tiles.length)
 
+  activateTile: () ->
+    row = _.random(0, 3)
+    cell = _.random(0, 3)
+    tile = @grid[row][cell]
+    if tile isnt tile.isActive()
+      tile.activate()
+    else
+      @activateTile()
+
   toString: () ->
     string = ""
     @grid.forEach (row) ->
