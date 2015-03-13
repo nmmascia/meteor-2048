@@ -11,5 +11,8 @@ class @Tile
   decrement: () ->
     @value = 0
 
+  activate: () ->
+    @value = 2
+
   toString: () ->
     if @isActive() then "#{@value}|" else " |"
