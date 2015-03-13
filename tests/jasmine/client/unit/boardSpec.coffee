@@ -25,3 +25,10 @@ describe 'Board', () ->
     flattened = [].concat.apply([], board.grid)
     totalValue = (tile.value for tile in flattened when tile.value is 2)
     expect(totalValue.pop()).toEqual(2)
+
+  it 'should reduce adjacent Tiles if they share a value', () ->
+    board.grid[0][0].value = 2
+    board.grid[0][1].value = 2
+    board.reduceRow(board.grid[0])
+    expect(board.grid[0][0].value).toEqual(4)
+    expect(board.grid[0][1].value).toEqual(0)
