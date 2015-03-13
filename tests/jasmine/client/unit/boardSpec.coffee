@@ -1,5 +1,6 @@
 describe 'Board', () ->
   board = new Board()
+  flattened = [].concat.apply([], board.grid)
 
   it 'should exist', () ->
     expect(board).toBeTruthy
@@ -12,9 +13,12 @@ describe 'Board', () ->
       expect(row.length).toEqual(4)
 
   it 'should have 4 Tile elements per row in grid', () ->
-    flattened = [].concat.apply([], board.grid)
     flattened.forEach (cell) ->
       expect(cell instanceof Tile).toBe(true)
+
+  it 'should start with 2 active Tiles', () ->
+    totalValue = (tile.value for tile in flattened when tile.value is 2)
+    expect(totalValue).toEqual([2,2])
 
   it 'should be able to activate a tile', () ->
     board.activateTile()
