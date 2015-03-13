@@ -41,3 +41,9 @@ describe 'Board', () ->
     board.shiftGrid()
     values = getValues(board.grid[0])
     expect(values).toEqual([2,2,0,0])
+
+  it 'should be able to reverse Tiles in a row', () ->
+    original = getValues(board.grid[0])
+    board.reverseGrid()
+    reversed = getValues(board.grid[0])
+    expect(reversed).toEqual(original.reverse())
