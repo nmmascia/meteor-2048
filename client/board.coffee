@@ -10,10 +10,7 @@ class @Board
     row = _.random(0, 3)
     cell = _.random(0, 3)
     tile = @grid[row][cell]
-    if tile isnt tile.isActive()
-      tile.activate()
-    else
-      @activateTile()
+    if tile.isActive() then @activateTile() else tile.activate()
 
   toString: () ->
     string = ""
