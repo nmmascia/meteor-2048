@@ -40,6 +40,17 @@ class @Board
   transposeGrid: () ->
     @grid = _.zip.apply(_, @grid)
 
+  padGrid: () ->
+    @grid = (@padRow(row) for row in @grid)
+
+  padRow: (row) ->
+    if row.length is 4
+      row
+    else
+      padBy = (4 - row.length)
+      padding = (new Tile for [1..padBy])
+      row.concat(padding)
+
   toString: () ->
     string = ""
     @grid.forEach (row) ->
