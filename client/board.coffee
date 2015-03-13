@@ -1,6 +1,7 @@
 class @Board
   constructor: () ->
     @grid = @_createGrid()
+    @activateTile() for [1..2]
 
   _createGrid: () ->
     tiles = (new Tile for [1..16])
