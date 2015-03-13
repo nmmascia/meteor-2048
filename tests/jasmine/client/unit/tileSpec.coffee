@@ -24,3 +24,9 @@ describe 'Tile', () ->
     valuedTile.decrement()
     expect(valuedTile.isActive()).toBe(false)
     expect(valuedTile.value).toEqual(0)
+
+  it 'can activate itself', () ->
+    active = tile
+    active.activate()
+    expect(active.isActive()).toBe(true)
+    expect(active.value).toEqual(2)
