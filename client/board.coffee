@@ -31,6 +31,12 @@ class @Board
     (if tile.isActive() then activeTiles else inactiveTiles).push tile for tile in row
     row = activeTiles.concat(inactiveTiles)
 
+  reverseGrid: () ->
+    @grid = (@reverseRow(row) for row in @grid)
+
+  reverseRow: (row) ->
+    row.reverse()
+
   toString: () ->
     string = ""
     @grid.forEach (row) ->
