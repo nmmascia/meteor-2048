@@ -30,17 +30,14 @@ describe 'Board', () ->
     expect(totalValue.pop()).toEqual(2)
 
   it 'should reduce adjacent Tiles if they share a value', () ->
-    board.grid[0][0].activate()
-    board.grid[0][1].activate()
+    board.grid[0][i].activate() for i in [0..1]
     board.reduceRow(board.grid[0])
     expect(board.grid[0][0].value).toEqual(4)
     expect(board.grid[0][1].value).toEqual(0)
 
   it 'should be able to move inactive Tiles to end of row', () ->
-    board.grid[0][0].decrement()
-    board.grid[0][1].decrement()
-    board.grid[0][2].activate()
-    board.grid[0][3].activate()
+    board.grid[0][i].decrement() for i in [0..1]
+    board.grid[0][i].activate() for i in [2..3]
     board.shiftGrid()
     values = getValues(board.grid[0])
     expect(values).toEqual([2,2,0,0])
