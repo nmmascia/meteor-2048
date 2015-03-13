@@ -28,5 +28,5 @@ class @Board
     @grid.forEach (row) ->
       string += "\n"
       row.forEach (tile) ->
-        string += "#{tile.toString()}"
+        string += tile.toString()
     string
