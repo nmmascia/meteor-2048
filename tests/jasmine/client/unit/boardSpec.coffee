@@ -47,3 +47,11 @@ describe 'Board', () ->
     board.reverseGrid()
     reversed = getValues(board.grid[0])
     expect(reversed).toEqual(original.reverse())
+
+  it 'should be able to transpose its Tiles', () ->
+    board.transposeGrid()
+    gridOne = (getValues(row) for row in board.grid)
+    board.transposeGrid() for i in [0..1]
+    gridTwo = (getValues(row) for row in board.grid)
+    expect(gridOne).toEqual(gridTwo)
+
