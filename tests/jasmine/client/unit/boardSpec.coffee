@@ -1,3 +1,6 @@
+getValues = (row) ->
+  tile.value for tile in row
+
 describe 'Board', () ->
   board = new Board()
   flattened = [].concat.apply([], board.grid)
@@ -34,7 +37,10 @@ describe 'Board', () ->
     expect(board.grid[0][1].value).toEqual(0)
 
   it 'should be able to move inactive Tiles to end of row', () ->
-    for i in [0..3]
-      if i <= 1 then board.grid[0][i].decrement() else board.grid[0][i].activate()
-    board.yankTiles()
-    expect(board.grid[0]).toEqual([2,2,0,0])
+    board.grid[0][0].decrement()
+    board.grid[0][1].decrement()
+    board.grid[0][2].activate()
+    board.grid[0][3].activate()
+    board.shiftGrid()
+    values = getValues(board.grid[0])
+    expect(values).toEqual([2,2,0,0])
