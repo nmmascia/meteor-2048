@@ -14,14 +14,22 @@ class @Board
     if tile.isActive() then @activateTile() else tile.activate()
 
   reduceGrid: () ->
-    @grid.forEach (row) ->
-      @reduceRow(row)
+    @grid = (@reduceRow(row) for row in @grid)
 
   reduceRow: (row) ->
     for tile, cell in row[0..2] when tile.value is row[cell + 1].value
       if tile.isActive() and row[cell + 1].isActive()
         tile.increment()
         row[cell + 1].decrement()
+
+  shiftGrid: () ->
+    @grid = (@shiftTiles(row) for row in @grid)
+
+  shiftTiles: (row) ->
+    activeTiles = []
+    inactiveTiles = []
+    (if tile.isActive() then activeTiles else inactiveTiles).push tile for tile in row
+    row = activeTiles.concat(inactiveTiles)
 
   toString: () ->
     string = ""
