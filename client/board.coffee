@@ -37,6 +37,9 @@ class @Board
   reverseRow: (row) ->
     row.reverse()
 
+  transposeGrid: () ->
+    @grid = _.zip.apply(_, @grid)
+
   toString: () ->
     string = ""
     @grid.forEach (row) ->
