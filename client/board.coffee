@@ -1,6 +1,9 @@
 class @Board
+  'use strict'
+
   constructor: () ->
     @grid = @_createGrid()
+    @_queuedGrid
     @activateTile() for [1..2]
 
   _createGrid: () ->

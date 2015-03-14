@@ -1,4 +1,6 @@
 class @Game
+  'use strict'
+
   constructor: () ->
     @board = new Board
 
@@ -6,6 +8,20 @@ class @Game
     @board.shiftGrid()
     @board.reduceGrid()
     @board.shiftGrid()
+
+  move: (direction) ->
+    duplicate = @getValues(@board.grid)
+    switch direction
+      when 'left'   then @moveLeft()
+      when 'right'  then @moveRight()
+      when 'up'     then @moveUp()
+      when 'down'   then @moveDown()
+    solution = @getValues(@board.grid)
+    if duplicate.toString() isnt solution.toString()
+      @board.activateTile()
+      @board.toString()
+    else
+      false
 
   moveLeft: () ->
     @calculateIncrements()
@@ -26,3 +42,7 @@ class @Game
     @calculateIncrements()
     @board.reverseGrid()
     @board.transposeGrid()
+
+  getValues: (grid) ->
+    flattened = [].concat.apply([], grid)
+    values = (tile.value for tile in flattened)

@@ -1,4 +1,6 @@
 class @Tile
+  'use strict'
+
   constructor: (@value) ->
     @value ?= 0
 
