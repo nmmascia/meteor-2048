@@ -1,8 +1,15 @@
 getValues = (row) ->
   tile.value for tile in row
 
+emptyTiles = (grid) ->
+  grid.map (row) ->
+    tile.decrement() for tile in row
+
 describe 'Game', () ->
-  game = new Game()
+  game = null
+
+  beforeEach ->
+    game = new Game
 
   it 'should exist', () ->
     expect(game).toBeTruthy
@@ -40,3 +47,8 @@ describe 'Game', () ->
     game.moveDown()
     game.board.grid[3].forEach (tile) ->
       expect(tile.isActive()).toBe(true)
+
+  it 'should return false in a no move situation', () ->
+    emptyTiles(game.board.grid)
+    game.board.grid[0] = [new Tile(4), new Tile(4), new Tile(4), new Tile(4)]
+    expect(game.move('up')).toBe(false)
