@@ -16,3 +16,15 @@ describe 'Game', () ->
     game.calculateIncrements()
     values = getValues(game.board.grid[0])
     expect(values).toEqual([4,4,0,0])
+
+  it 'should be able to move all Tiles to the left', () ->
+    game.board.grid[0][i].value = 2 for i in [0..3]
+    game.moveLeft()
+    values = getValues(game.board.grid[0])
+    expect(values).toEqual([4,4,0,0])
+
+  it 'should be able to move all Tiles to the right', () ->
+    game.board.grid[i][0].value = 2 for i in [0..3]
+    game.moveRight()
+    game.board.grid.forEach (row) ->
+      expect(row[3].value).toBeGreaterThan(0)
