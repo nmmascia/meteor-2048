@@ -19,3 +19,10 @@ class @Game
     @board.transposeGrid()
     @calculateIncrements()
     @board.transposeGrid()
+
+  moveDown: () ->
+    @board.transposeGrid()
+    @board.reverseGrid()
+    @calculateIncrements()
+    @board.reverseGrid()
+    @board.transposeGrid()
