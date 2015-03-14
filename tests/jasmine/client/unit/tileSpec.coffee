@@ -1,6 +1,10 @@
 describe 'Tile', () ->
-  tile = new Tile()
-  valuedTile = new Tile(2)
+  tile = null
+  valuedTile = null
+
+  beforeEach ->
+    tile = new Tile()
+    valuedTile = new Tile(2)
 
   it 'should exist', () ->
     expect(tile).toBeTruthy

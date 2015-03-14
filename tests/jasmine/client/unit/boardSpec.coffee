@@ -2,8 +2,12 @@ getValues = (row) ->
   tile.value for tile in row
 
 describe 'Board', () ->
-  board = new Board()
-  flattened = [].concat.apply([], board.grid)
+  board = null
+  flattened = null
+
+  beforeEach ->
+    board = new Board()
+    flattened = [].concat.apply([], board.grid)
 
   it 'should exist', () ->
     expect(board).toBeTruthy
@@ -25,7 +29,6 @@ describe 'Board', () ->
 
   it 'should be able to activate a tile', () ->
     board.activateTile()
-    flattened = [].concat.apply([], board.grid)
     totalValue = (tile.value for tile in flattened when tile.value is 2)
     expect(totalValue.pop()).toEqual(2)
 
