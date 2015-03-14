@@ -17,10 +17,10 @@ class @Board
     @grid = (@reduceRow(row) for row in @grid)
 
   reduceRow: (row) ->
-    for tile, cell in row[0..2] when tile.value is row[cell + 1].value
-      if tile.isActive() and row[cell + 1].isActive()
+    for tile, index in row[0..2] when tile.value is row[index + 1].value
         tile.increment()
-        row[cell + 1].decrement()
+        row[index + 1].decrement()
+    row
 
   shiftGrid: () ->
     @grid = (@shiftTiles(row) for row in @grid)
