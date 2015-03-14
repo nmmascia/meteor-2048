@@ -28,3 +28,9 @@ describe 'Game', () ->
     game.moveRight()
     game.board.grid.forEach (row) ->
       expect(row[3].value).toBeGreaterThan(0)
+
+  it 'should be able to move all Tiles upward', () ->
+    game.board.grid[3] = [new Tile(2), new Tile(2), new Tile(2), new Tile(2)]
+    game.moveUp()
+    game.board.grid[0].forEach (tile) ->
+      expect(tile.isActive()).toBe(true)
