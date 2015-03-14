@@ -34,3 +34,9 @@ describe 'Game', () ->
     game.moveUp()
     game.board.grid[0].forEach (tile) ->
       expect(tile.isActive()).toBe(true)
+
+  it 'should be able to move all Tiles downward', () ->
+    game.board.grid[0] = [new Tile(2), new Tile(2), new Tile(2), new Tile(2)]
+    game.moveDown()
+    game.board.grid[3].forEach (tile) ->
+      expect(tile.isActive()).toBe(true)
