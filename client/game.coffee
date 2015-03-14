@@ -14,3 +14,8 @@ class @Game
     @board.reverseGrid()
     @calculateIncrements()
     @board.reverseGrid()
+
+  moveUp: () ->
+    @board.transposeGrid()
+    @calculateIncrements()
+    @board.transposeGrid()
