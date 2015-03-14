@@ -6,3 +6,11 @@ class @Game
     @board.shiftGrid()
     @board.reduceGrid()
     @board.shiftGrid()
+
+  moveLeft: () ->
+    @calculateIncrements()
+
+  moveRight: () ->
+    @board.reverseGrid()
+    @calculateIncrements()
+    @board.reverseGrid()
