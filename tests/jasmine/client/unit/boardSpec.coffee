@@ -55,10 +55,3 @@ describe 'Board', () ->
     board.transposeGrid() for i in [0..1]
     gridTwo = (getValues(row) for row in board.grid)
     expect(gridOne).toEqual(gridTwo)
-
-  it 'should be able to pad its grid to 4 Tile elements', () ->
-    for i in [0..3]
-      board.grid[i].splice(0, i + 1)
-    board.padGrid()
-    board.grid.forEach (row) ->
-      expect(row.length).toBe(4)
