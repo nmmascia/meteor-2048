@@ -9,3 +9,8 @@ describe 'VoteCounter', () ->
 
   it 'should have a vote tally object', () ->
     expect(voteCounter.tally instanceof Object).toBe(true)
+
+  it 'tally should start with 0 votes for all keys by default', () ->
+    total = 0
+    total += tally for vote, tally of voteCounter.tally
+    expect(total).toBe(0)
