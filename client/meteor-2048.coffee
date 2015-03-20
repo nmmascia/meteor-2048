@@ -5,14 +5,6 @@ Template.currentGame.helpers
     Games.find({ current: true })
 
 Template.currentGame.events
-  'click .up': () ->
-    Meteor.call('updateGame', 'up')
-
-  'click .down': () ->
-    Meteor.call('updateGame', 'down')
-
-  'click .right': () ->
-    Meteor.call('updateGame', 'right')
-
-  'click .left': () ->
-    Meteor.call('updateGame', 'left')
+  'click button': (event) ->
+    vote = event.target.className
+    Meteor.call('updateGame', vote)
