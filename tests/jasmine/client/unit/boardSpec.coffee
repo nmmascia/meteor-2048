@@ -10,7 +10,7 @@ describe 'Board', () ->
     flattened = [].concat.apply([], board.grid)
 
   it 'should exist', () ->
-    expect(board).toBeTruthy
+    expect(board instanceof Board).toBe(true)
 
   it 'should have a 4X4 grid', () ->
     expect(board.grid.length).toEqual(4)

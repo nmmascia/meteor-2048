@@ -7,7 +7,7 @@ describe 'Tile', () ->
     valuedTile = new Tile(2)
 
   it 'should exist', () ->
-    expect(tile).toBeTruthy
+    expect(tile instanceof Tile).toBe(true)
 
   it 'should have a value', () ->
     expect(typeof tile.value).toBe('number')

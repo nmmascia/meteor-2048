@@ -12,7 +12,7 @@ describe 'Game', () ->
     game = new Game
 
   it 'should exist', () ->
-    expect(game).toBeTruthy
+    expect(game instanceof Game).toBe(true)
 
   it 'should have a board', () ->
     expect(game.board).toBeTruthy
