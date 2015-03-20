@@ -8,3 +8,12 @@ if currentGame.length is 0
 else
   board = new Board(currentGame.grid)
   game = new Game(board)
+
+updateGame = (direction) ->
+  game.move(direction)
+  oldGrid = Games.findOne({ current: true })
+  Games.update({ _id: oldGrid._id }, { $set: { grid: game.board.grid } })
+
+Meteor.methods
+  updateGame: (direction) ->
+    updateGame(direction)
