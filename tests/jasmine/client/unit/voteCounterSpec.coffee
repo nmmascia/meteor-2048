@@ -10,10 +10,7 @@ describe 'VoteCounter', () ->
   it 'should have a vote tally object', () ->
     expect(voteCounter.tally instanceof Object).toBe(true)
 
-  it 'tally should start with 0 votes for all keys by default', () ->
-    total = 0
-    votes = ''
-    total += tally for vote, tally of voteCounter.tally
-    votes += "#{vote}" for vote, tally of voteCounter.tally
-    expect(total).toBe(0)
-    expect(votes).toBe('updownleftright')
+  it 'tally should start with 0 votes for four directional keys by default', () ->
+    total = 0, votes = ''
+    string += "#{vote}:#{tally}|" for vote, tally of voteCounter.tally
+    expect(string).toBe("up:0|down:0|left:0|right:0|")
