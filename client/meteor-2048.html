@@ -6,5 +6,20 @@
   {{> game}}
 </body>
 
-<template name="game">
+<template name="currentGame">
+  <div class="grid">
+    {{#each game}}
+      {{#each grid}}
+        <br>
+        {{#each this}}
+          {{value}}
+        {{/each}}
+      {{/each}}
+    {{/each}}
+    <br>
+    <button class="up">Up</button>
+    <button class="down">Down</button>
+    <button class="left">Left</button>
+    <button class="right">Right</button>
+  </div>
 </template>
