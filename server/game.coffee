@@ -1,10 +1,8 @@
-game
-
 Meteor.publish 'games', () ->
   Games.find({ current: true })
 
-currentGame = Games.find({ current: true }).fetch()
-if currentGame.length is 0
+currentGame = Games.findOne({ current: true })
+if currentGame.length is null
   game = new Game
   Games.insert({ grid: game.board.grid, current: true })
 else
