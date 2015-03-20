@@ -12,5 +12,8 @@ describe 'VoteCounter', () ->
 
   it 'tally should start with 0 votes for all keys by default', () ->
     total = 0
+    votes = ''
     total += tally for vote, tally of voteCounter.tally
+    votes += "#{vote}" for vote, tally of voteCounter.tally
     expect(total).toBe(0)
+    expect(votes).toBe('updownleftright')
