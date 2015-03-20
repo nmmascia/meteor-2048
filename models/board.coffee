@@ -1,9 +1,17 @@
 class @Board
   'use strict'
 
-  constructor: () ->
-    @grid = @_createGrid()
-    @activateTile() for [1..2]
+  constructor: (grid) ->
+    if grid
+      @grid = @_constructGrid(grid)
+    else
+      @grid = @_createGrid()
+      @activateTile() for [1..2]
+
+  _constructGrid: (grid) ->
+    grid.map (row) ->
+      row.map (tile) ->
+        new Tile(tile.value)
 
   _createGrid: () ->
     tiles = (new Tile for [1..16])

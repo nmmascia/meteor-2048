@@ -1,8 +1,8 @@
 class @Game
   'use strict'
 
-  constructor: () ->
-    @board = new Board
+  constructor: (@board) ->
+    @board ?= new Board
 
   calculateIncrements: () ->
     @board.shiftGrid()
