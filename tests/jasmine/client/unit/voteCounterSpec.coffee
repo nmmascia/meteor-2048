@@ -1,5 +1,7 @@
 describe 'VoteCounter', () ->
-  voteCounter, voteCounterIncremented, vote
+  voteCounter = null
+  voteCounterIncremented = null
+  vote = null
 
   beforeEach ->
     voteCounter = new VoteCounter
