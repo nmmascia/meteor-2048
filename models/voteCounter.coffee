@@ -6,3 +6,7 @@ class @VoteCounter
 
   increment: (direction) ->
     @tally[direction]++
+
+  reset: () ->
+    for vote, count of @tally
+      @tally[vote] = 0
