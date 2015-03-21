@@ -1,8 +1,12 @@
 describe 'VoteCounter', () ->
-  voteCounter = null
+  voteCounter, voteCounterIncremented, vote
 
   beforeEach ->
     voteCounter = new VoteCounter
+    voteCounterIncremented = new VoteCounter
+    vote = ['up', 'down', 'left', 'right']
+    vote.forEach (direction) ->
+      voteCounterIncremented.increment(direction)
 
   it 'should exist', () ->
     expect(voteCounter instanceof VoteCounter).toBe(true)
@@ -16,7 +20,10 @@ describe 'VoteCounter', () ->
     expect(string.join('')).toEqual("up:0|down:0|left:0|right:0|")
 
   it 'should be able to increment tallies', () ->
-    vote = ['up', 'down', 'left', 'right']
     vote.forEach (direction) ->
-      voteCounter.increment(direction)
-      expect(voteCounter.tally[direction]).toBe(1)
+      expect(voteCounterIncremented.tally[direction]).toBe(1)
+
+  it 'should be able to reset all tallies', () ->
+    voteCounterIncremented.reset()
+    vote.forEach (direction) ->
+      expect(voteCounterIncremented.tally[direction]).toBe(0)
