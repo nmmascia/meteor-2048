@@ -29,3 +29,7 @@ describe 'VoteCounter', () ->
     voteCounterIncremented.reset()
     vote.forEach (direction) ->
       expect(voteCounterIncremented.tally[direction]).toBe(0)
+
+  it 'should return the most voted direction', () ->
+    voteCounter.increment('up')
+    expect(voteCounter.mostVotes()).toBe('up')
