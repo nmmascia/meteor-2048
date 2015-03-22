@@ -2,7 +2,7 @@ Meteor.publish 'games', () ->
   Games.find({ current: true })
 
 currentGame = Games.findOne({ current: true })
-if currentGame.length is null
+if currentGame is undefined
   game = new Game
   Games.insert({ grid: game.board.grid, current: true })
 else
