@@ -17,4 +17,4 @@ class @VoteCounter
   mostVotes: () ->
     voteCount = _.max(@tally)
     mostVotes = (vote for vote, count of @tally when count is voteCount)
-    mostVotes.pop() if mostVotes.length is 1
+    if mostVotes.length is 1 then mostVotes.pop() else mostVotes

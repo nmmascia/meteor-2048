@@ -33,3 +33,8 @@ describe 'VoteCounter', () ->
   it 'should return the most voted direction', () ->
     voteCounter.increment('up')
     expect(voteCounter.mostVotes()).toBe('up')
+
+  it 'should return an array of voting ties', () ->
+    voteCounter.increment('up')
+    voteCounter.increment('down')
+    expect(voteCounter.mostVotes()).toEqual(['up', 'down'])
