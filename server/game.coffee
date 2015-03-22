@@ -1,5 +1,3 @@
-voteCounter = new VoteCounter
-
 Meteor.publish 'games', () ->
   Games.find({ current: true })
 
@@ -9,7 +7,8 @@ if currentGame is undefined
   Games.insert({ grid: game.board.grid, current: true })
 else
   board = new Board(currentGame.grid)
-  game = new Game(board)
+  voteCounter = new VoteCounter
+  game = new Game(board, voteCounter)
 
 updateGame = (direction) ->
   game.move(direction)
@@ -18,4 +17,5 @@ updateGame = (direction) ->
 
 Meteor.methods
   tallyVote: (vote) ->
-    voteCounter.increment(vote)
+    game.voteCounter.increment(vote)
+    console.log game.voteCounter.tally
