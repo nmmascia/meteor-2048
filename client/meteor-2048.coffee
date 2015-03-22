@@ -7,4 +7,4 @@ Template.currentGame.helpers
 Template.currentGame.events
   'click button': (event) ->
     vote = event.target.className
-    Meteor.call('updateGame', vote)
+    Meteor.call('tallyVote', vote)

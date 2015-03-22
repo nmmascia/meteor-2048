@@ -1,3 +1,5 @@
+voteCounter = new VoteCounter
+
 Meteor.publish 'games', () ->
   Games.find({ current: true })
 
@@ -15,5 +17,5 @@ updateGame = (direction) ->
   Games.update({ _id: oldGrid._id }, { $set: { grid: game.board.grid } })
 
 Meteor.methods
-  updateGame: (direction) ->
-    updateGame(direction)
+  tallyVote: (vote) ->
+    voteCounter.increment(vote)
