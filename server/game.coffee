@@ -15,7 +15,12 @@ updateGame = (direction) ->
   oldGrid = Games.findOne({ current: true })
   Games.update({ _id: oldGrid._id }, { $set: { grid: game.board.grid } })
 
+Meteor.setInterval ->
+  mostVoted = game.voteCounter.mostVotes()
+  updateGame(mostVoted)
+  game.voteCounter.reset()
+, 30000
+
 Meteor.methods
   tallyVote: (vote) ->
     game.voteCounter.increment(vote)
-    console.log game.voteCounter.tally
