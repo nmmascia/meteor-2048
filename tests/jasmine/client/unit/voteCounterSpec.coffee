@@ -37,4 +37,4 @@ describe 'VoteCounter', () ->
   it 'should return an array of voting ties', () ->
     voteCounter.increment('up')
     voteCounter.increment('down')
-    expect(voteCounter.mostVotes()).toEqual(['up', 'down'])
+    expect(['up', 'down']).toContain(voteCounter.mostVotes())
