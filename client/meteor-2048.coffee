@@ -6,7 +6,10 @@ Template.currentGame.helpers
 
   votes: () ->
     game = Games.findOne({ current: true })
-    game.votes
+    votes = []
+    for key, value of game.votes
+      votes.push direction: key, count: value
+    votes
 
 Template.currentGame.events
   'click button': (event) ->
