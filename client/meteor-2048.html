@@ -8,26 +8,27 @@
 
 <template name="currentGame">
   <div class="container">
+
     <div class="grid">
       {{#each game}}
         {{#each grid}}
         <div class="row">
           {{#each this}}
-            <div class="cell">{{value}}</div>
+            <div class="cell small-3 columns">{{value}}</div>
           {{/each}}
         </div>
         {{/each}}
       {{/each}}
     </div>
-    <div class="voting">
-      <button class="up">Up</button>
-      <span>{{votes.up}}</span>
-      <button class="down">Down</button>
-      <span>{{votes.down}}</span>
-      <button class="left">Left</button>
-      <span>{{votes.left}}</span>
-      <button class="right">Right</button>
-      <span>{{votes.right}}</span>
+
+    <div class="voting-block row">
+      {{#each votes}}
+        <div class="{{direction}}-block small-3 columns">
+          <button id="{{direction}}" class="small radius">{{direction}}</button>
+          <span>{{count}}</span>
+        </div>
+      {{/each}}
     </div>
+
   </div>
 </template>
