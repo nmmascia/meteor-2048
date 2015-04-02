@@ -44,6 +44,19 @@ class @Game
     @board.reverseGrid()
     @board.transposeGrid()
 
+  copyGame: () ->
+    board = new Board(@board.grid)
+    copiedGame = new Game(board)
+
+  isGameOver: () ->
+    boardCopies = (@copyGame() for [1..4])
+    directions = ['up', 'down', 'left', 'right']
+    isMoveAvailable = []
+    directions.forEach (direction, index) ->
+      console.log index, direction
+      isMoveAvailable.push(boardCopies[index].move(direction) is false)
+    isMoveAvailable.some (value) -> value is true
+
   getValues: (grid) ->
     flattened = [].concat.apply([], grid)
     values = (tile.value for tile in flattened)
