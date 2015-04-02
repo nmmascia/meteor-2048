@@ -12,20 +12,24 @@
     <div class="grid">
       {{#each game}}
         {{#each grid}}
-        <div class="row">
+        <div class="grid-row">
           {{#each this}}
-            <div class="cell small-3 columns">{{value}}</div>
+            <div class="grid-cell tile-{{value}}">
+              <p>{{value}}</p>
+            </div>
           {{/each}}
         </div>
         {{/each}}
       {{/each}}
     </div>
 
-    <div class="voting-block row">
+    <div class="voting-block">
       {{#each votes}}
-        <div class="{{direction}}-block small-3 columns">
-          <button id="{{direction}}" class="small radius">{{direction}}</button>
-          <span>{{count}}</span>
+        <div class="vote {{direction}}-block">
+          <button id="{{direction}}">{{direction}}</button>
+          <div class="counter">
+            <p class="count-tag">ct: {{count}}</p>
+          </div>
         </div>
       {{/each}}
     </div>
