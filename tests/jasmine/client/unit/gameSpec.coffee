@@ -52,3 +52,19 @@ describe 'Game', () ->
     emptyTiles(game.board.grid)
     game.board.grid[0] = [new Tile(4), new Tile(4), new Tile(4), new Tile(4)]
     expect(game.move('up')).toBe(false)
+
+  it 'should be able make an identical copy of the board', () ->
+    game.board.activateTile() for [1..4]
+    copy = game.copyBoard()
+    [0..3].forEach (num) ->
+      expect(copy.grid[num]).toEqual(game.board.grid[num])
+
+  it 'should return false if game is not over', () ->
+    expect(game.isGameOver()).toBe(false)
+
+  it 'should return true if game is over', () ->
+    tiles = ({value: num} for num in [1..16])
+    grid = (tiles.splice(0,4) while tiles.length)
+    brokenBoard = new Board(grid)
+    lostGame = new Game(brokenBoard, 1)
+    expect(lostGame.isGameOver()).toBe(true)
