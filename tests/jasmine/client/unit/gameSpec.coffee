@@ -55,9 +55,9 @@ describe 'Game', () ->
 
   it 'should be able make an identical copy of the board', () ->
     game.board.activateTile() for [1..4]
-    copy = game.copyBoard()
+    copy = game.copyGame()
     [0..3].forEach (num) ->
-      expect(copy.grid[num]).toEqual(game.board.grid[num])
+      expect(copy.board.grid[num]).toEqual(game.board.grid[num])
 
   it 'should return false if game is not over', () ->
     expect(game.isGameOver()).toBe(false)
