@@ -53,9 +53,8 @@ class @Game
     directions = ['up', 'down', 'left', 'right']
     isMoveAvailable = []
     directions.forEach (direction, index) ->
-      console.log index, direction
       isMoveAvailable.push(boardCopies[index].move(direction) is false)
-    isMoveAvailable.some (value) -> value is true
+    isMoveAvailable.every (value) -> value is true
 
   getValues: (grid) ->
     flattened = [].concat.apply([], grid)
