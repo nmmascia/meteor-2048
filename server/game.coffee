@@ -17,11 +17,15 @@ Meteor.startup ->
     Games.update({ _id: oldGrid._id }, { $set: { grid: game.board.grid } })
 
   Meteor.setInterval ->
-    mostVoted = game.voteCounter.mostVotes()
-    updateGame(mostVoted)
-    game.voteCounter.reset()
     currentGame = Games.findOne({ current: true })
-    Games.update({ _id: currentGame._id }, { $set: { votes: game.voteCounter.tally } })
+    if game.isGameOver()
+      game = new Game
+      Games.update({ _id: currentGame._id }, $set: { grid: game.board.grid, votes: game.voteCounter.tally })
+    else
+      mostVoted = game.voteCounter.mostVotes()
+      updateGame(mostVoted)
+      game.voteCounter.reset()
+      Games.update({ _id: currentGame._id }, { $set: { votes: game.voteCounter.tally } })
   , 30000
 
   Meteor.methods
