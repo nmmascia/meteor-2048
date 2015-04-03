@@ -1,7 +1,8 @@
 class @Board
   'use strict'
 
-  constructor: (grid) ->
+  constructor: (grid, @scorer) ->
+    @scorer ?= new Scorer
     if grid
       @grid = @_constructGrid(grid)
     else
@@ -29,6 +30,7 @@ class @Board
   reduceRow: (row) ->
     for tile, index in row[0..2] when tile.value is row[index + 1].value
         tile.increment()
+        @scorer.increment(tile.value)
         row[index + 1].decrement()
     row
 
