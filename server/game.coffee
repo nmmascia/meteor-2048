@@ -5,8 +5,9 @@ Meteor.startup ->
   currentGame = Games.findOne({ current: true })
   if currentGame is undefined
     game = new Game
-    Games.insert({ grid: game.board.grid, current: true, votes: { up : 0, down : 0, left : 0, right: 0 } })
+    Games.insert({ grid: game.board.grid, current: true, votes: { up : 0, down : 0, left : 0, right: 0 }, score: 0 })
   else
+    scorer = new Scorer(currentGame.score)
     board = new Board(currentGame.grid)
     voteCounter = new VoteCounter
     game = new Game(board, voteCounter)
@@ -25,7 +26,9 @@ Meteor.startup ->
       mostVoted = game.voteCounter.mostVotes()
       updateGame(mostVoted)
       game.voteCounter.reset()
-      Games.update({ _id: currentGame._id }, { $set: { votes: game.voteCounter.tally } })
+      Games.update({ _id: currentGame._id }, { $set:
+        { votes: game.voteCounter.tally, score: game.board.scorer.currentScore }
+      })
   , 30000
 
   Meteor.methods
