@@ -58,3 +58,11 @@ describe 'Board', () ->
     board.transposeGrid() for i in [0..1]
     gridTwo = (getValues(row) for row in board.grid)
     expect(gridOne).toEqual(gridTwo)
+
+  it 'should have a total score', () ->
+    expect(board.scorer.currentScore).toBe(0)
+
+  it 'should increment its score when tiles are combined', () ->
+    board.grid[0][i].activate() for i in [0..1]
+    board.reduceGrid()
+    expect(board.scorer.currentScore).not.toBeLessThan(4)
