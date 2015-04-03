@@ -85,7 +85,7 @@ header
   border-radius: 10px
 
   p
-    margin-top: 2.5px
+    margin-top: 5px
     font: 1.15em $font-stack
     color: $background-color
     letter-spacing: 0.75px
@@ -95,12 +95,33 @@ header
     color: $background-color
     letter-spacing: 1px
 
-  h1
-    font: bold 5em $font-stack
-    letter-spacing: 0.5px
-    color: $background-color
-
 .title-tag
   font: bold 3em $font-stack
   color: $font-light
   margin-right: 200px
+
+.title-and-score
+  display: flex
+
+  h1
+    flex: 2
+    font: bold 5em $font-stack
+    letter-spacing: 0.5px
+    color: $background-color
+
+  .score
+    flex: 1
+    background-color: $background-color
+    text-align: center
+    border-radius: 10px
+    width: 60px
+
+    h6
+      margin-top: 15px
+      font: bold 1em $font-stack
+      color: $font-light
+
+    p
+      font: bold 2em $font-stack
+      color: $font-light
+

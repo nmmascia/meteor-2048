@@ -6,19 +6,22 @@
   {{> currentGame}}
 </body>
 
-<template name="topBar">
-  <header class="intro-header">
-    <div class="title">
-      <h1>2048</h1>
-      <p>Vote on the next swipe and get to the <em>2048 tile</em></p>
-      <p><em>...together!</em></p>
-    </div>
-  </header>
-</template>
-
 <template name="currentGame">
   <div class="container">
-    {{>topBar}}
+    <!-- Top bar -->
+    <header class="intro-header">
+      <div class="title">
+        <div class="title-and-score">
+          <h1>2048</h1>
+          <div class="score">
+            <h6>Current Score</h6>
+            <p>{{score}}</p>
+          </div>
+        </div>
+        <p>Vote on the next swipe and get to the <em>2048 tile</em></p>
+        <p><em>...together!</em></p>
+      </div>
+    </header>
 
     <!-- Game grid -->
     <div class="grid">
