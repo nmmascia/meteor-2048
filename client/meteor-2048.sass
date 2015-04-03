@@ -2,87 +2,19 @@ $background-color: #2E2B40
 $primary-tile: #B9AEFF
 $font-stack: Arial, sans-serif
 $font-light: #F7F6FF
+$uniform-radius: 10px
+
+@import client/grid/grid.sass
+@import client/panel/panel.sass
 
 html
   background-color: lighten( $primary-tile, 10% )
-
-.container
-  width: 100%
-
-.grid
-  width: 500px
-  height: 500px
-  margin: 20px auto
-  background: $background-color
-  display: flex
-  flex-direction: column
-  border-radius: 10px
-
-.grid-row
-  flex: 1
-  margin-bottom: 15px
-  display: flex
-  flex-direction: row
-
-.grid-row:first-child
-  margin-top: 15px
-
-.grid-cell
-  flex: 1
-  margin-right: 15px
-  text-align: center
-  background: $primary-tile
-  border-radius: 3px
-
-  p
-    font: bold 2em $font-stack
-    color: $font-light
-    transform: translateY(100%)
-
-.grid-cell:first-child
-  margin-left: 15px
-
-.tile-0
-  background: rgba( $primary-tile, .3 )
-
-  p
-    visibility: hidden
-
-.voting-block
-  display: flex
-  margin: 0 auto
-  width: 700px
-  text-align: center
-
-.vote
-  flex: 1
-
-button
-  width: 100px
-  height: 50px
-  border-top: none
-  border-left: none
-  border-right: none
-  border-bottom: 5px solid $background-color
-  border-radius: 10px
-  background: $primary-tile
-  font: bold 1.5em $font-stack
-  color: $font-light
-
-.counter
-  margin-top: 10px
-  background-color: $background-color
-  font: bold 1.5em $font-stack
-
-.count-tag
-  padding: 5px 0
-  color: $primary-tile
 
 header
   width: 500px
   height: 120px
   margin: 50px auto
-  border-radius: 10px
+  border-radius: $uniform-radius
 
   p
     margin-top: 5px
@@ -113,7 +45,7 @@ header
     flex: 1
     background-color: $background-color
     text-align: center
-    border-radius: 10px
+    border-radius: $uniform-radius
     height: 75px
 
     h6
@@ -126,3 +58,12 @@ header
     p
       font: bold 2em $font-stack
       color: $font-light
+
+.container
+  width: 100%
+
+.gameplay
+  display: flex
+  flex-flow: row wrap
+  max-width: 900px
+  margin: 0 auto

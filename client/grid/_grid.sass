@@ -1,0 +1,40 @@
+.grid
+  flex: 4
+  max-width: 500px
+  min-width: 500px
+  height: 500px
+  margin: 20px
+  background: $background-color
+  display: flex
+  flex-direction: column
+  border-radius: 10px
+
+.grid-row
+  flex: 1
+  margin-bottom: 15px
+  display: flex
+  flex-direction: row
+
+.grid-row:first-child
+  margin-top: 15px
+
+.grid-cell
+  flex: 1
+  margin-right: 15px
+  text-align: center
+  background: $primary-tile
+  border-radius: 3px
+
+  p
+    font: bold 2em $font-stack
+    color: $font-light
+    transform: translateY(100%)
+
+.grid-cell:first-child
+  margin-left: 15px
+
+.tile-0
+  background: rgba( $primary-tile, .3 )
+
+  p
+    visibility: hidden

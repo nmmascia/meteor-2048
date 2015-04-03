@@ -22,33 +22,9 @@
         <p><em>...together!</em></p>
       </div>
     </header>
-
-    <!-- Game grid -->
-    <div class="grid">
-      {{#each game}}
-        {{#each grid}}
-        <div class="grid-row">
-          {{#each this}}
-            <div class="grid-cell tile-{{value}}">
-              <p>{{value}}</p>
-            </div>
-          {{/each}}
-        </div>
-        {{/each}}
-      {{/each}}
-    </div>
-
-    <!-- Voting section -->
-    <div class="voting-block">
-      {{#each votes}}
-        <div class="vote {{direction}}-block">
-          <button id="{{direction}}">{{direction}}</button>
-          <div class="counter">
-            <p class="count-tag">vote ct: {{count}}</p>
-          </div>
-        </div>
-      {{/each}}
-    </div>
-
+    <section class="gameplay">
+      {{>grid}}
+      {{>panel}}
+    </section>
   </div>
 </template>

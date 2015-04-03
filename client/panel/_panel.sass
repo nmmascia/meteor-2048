@@ -1,0 +1,32 @@
+.panel
+  flex: 1
+  max-width: 500px
+  min-width: 300px
+  height: 500px
+  margin: 20px
+  border-radius: $uniform-radius
+  background-color: $background-color
+
+#voting-block
+  margin: 10px
+  border-radius: $uniform-radius
+  background: rgba( $primary-tile, .3 )
+
+  h1
+    padding: 5px 0
+    font: bold 1.2em $font-stack
+    color: $font-light
+    text-transform: uppercase
+    text-align: center
+
+  .voting-panel
+    display: flex
+
+    #up-block
+      order: 1
+    #left-block
+      order: 2
+    #right-block
+      order: 3
+    #down-block
+      order: 4

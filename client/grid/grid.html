@@ -1,0 +1,15 @@
+<template name="grid">
+  <div class="grid">
+    {{#each game}}
+      {{#each grid}}
+      <div class="grid-row">
+        {{#each this}}
+          <div class="grid-cell tile-{{value}}">
+            <p>{{value}}</p>
+          </div>
+        {{/each}}
+      </div>
+      {{/each}}
+    {{/each}}
+  </div>
+</template>
