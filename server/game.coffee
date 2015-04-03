@@ -21,7 +21,7 @@ Meteor.startup ->
     currentGame = Games.findOne({ current: true })
     if game.isGameOver()
       game = new Game
-      Games.update({ _id: currentGame._id }, $set: {
+      Games.update({ _id: currentGame._id }, { $set: {
         grid: game.board.grid,
         votes: game.voteCounter.tally,
         score: game.board.scorer.currentScore
