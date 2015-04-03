@@ -21,14 +21,19 @@ Meteor.startup ->
     currentGame = Games.findOne({ current: true })
     if game.isGameOver()
       game = new Game
-      Games.update({ _id: currentGame._id }, $set: { grid: game.board.grid, votes: game.voteCounter.tally })
+      Games.update({ _id: currentGame._id }, $set: {
+        grid: game.board.grid,
+        votes: game.voteCounter.tally,
+        score: game.board.scorer.currentScore
+      } })
     else
       mostVoted = game.voteCounter.mostVotes()
       updateGame(mostVoted)
       game.voteCounter.reset()
-      Games.update({ _id: currentGame._id }, { $set:
-        { votes: game.voteCounter.tally, score: game.board.scorer.currentScore }
-      })
+      Games.update({ _id: currentGame._id }, { $set: {
+        votes: game.voteCounter.tally,
+        score: game.board.scorer.currentScore
+      } })
   , 30000
 
   Meteor.methods
