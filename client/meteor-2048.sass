@@ -4,6 +4,26 @@ $font-stack: Arial, sans-serif
 $font-light: #F7F6FF
 $uniform-radius: 10px
 
+=display-flex
+  display: -webkit-box
+  display: -moz-box
+  display: -ms-flexbox
+  display: -webkit-flex
+  display: flex
+
+=flex($amount)
+  -webkit-box-flex: $amount
+  -webkit-flex: $amount
+  -ms-flex: $amount
+  flex: $amount
+
+=order($position)
+  -webkit-box-ordinal-group: $position
+  -moz-box-ordinal-group: $position
+  -ms-flex-order: $position
+  -webkit-order: $position
+  order: $position
+
 @import client/grid/grid.sass
 @import client/panel/panel.sass
 
@@ -33,16 +53,16 @@ header
   margin-right: 200px
 
 .title-and-score
-  display: flex
+  +display-flex
 
   h1
-    flex: 2
+    +flex(2)
     font: bold 5em $font-stack
     letter-spacing: 0.5px
     color: $background-color
 
   .score
-    flex: 1
+    +flex(1)
     background-color: $background-color
     text-align: center
     border-radius: $uniform-radius
@@ -64,6 +84,6 @@ header
 
 .gameplay
   margin: 0 auto
-  display: flex
+  +display-flex
   flex-flow: row wrap
   max-width: 900px
