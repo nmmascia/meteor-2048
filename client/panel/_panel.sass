@@ -1,8 +1,10 @@
 .panel
   flex: 1
+  display: flex
+  flex-direction: column
+  justify-content: space-around
   max-width: 500px
   min-width: 300px
-  height: 500px
   margin: 20px
   border-radius: $uniform-radius
   background-color: $background-color
@@ -13,7 +15,8 @@
   background: rgba( $primary-tile, .3 )
 
   h1
-    padding: 5px 0
+    padding-top: 5px
+    padding-bottom: 7px
     font: bold 1.2em $font-stack
     color: $font-light
     text-transform: uppercase
@@ -55,3 +58,33 @@
     #down-block
       order: 4
       margin-top: 5px
+
+#count-block
+  margin: 10px
+  border-radius: 5px
+  background: rgba( $primary-tile, .3 )
+  text-align: center
+
+  .vote-count
+    display: inline-block
+    height: 75px
+    width: 75px
+    margin: 15px
+
+    h6
+      padding-top: 5px
+      padding-bottom: 7px
+      font: bold 1.2em $font-stack
+      color: $font-light
+      text-transform: uppercase
+      text-align: center
+      text-shadow: -1px 2px 5px $background-color
+
+    h3
+      padding-top: 5px
+      padding-bottom: 7px
+      font: bold 2em $font-stack
+      color: $font-light
+      text-transform: uppercase
+      text-align: center
+      text-shadow: -1px 2px 5px $background-color

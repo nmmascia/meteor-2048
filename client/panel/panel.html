@@ -11,5 +11,14 @@
       </div>
     </div>
 
+    <div id="count-block">
+      {{#each votes}}
+      <div class="vote-count">
+        <h6>{{direction}}</h6>
+        <h3>{{count}}</h3>
+      </div>
+      {{/each}}
+    </div>
+
   </section>
 </template>
