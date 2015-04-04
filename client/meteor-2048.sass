@@ -24,6 +24,10 @@ $uniform-radius: 10px
   -webkit-order: $position
   order: $position
 
+=flex-flow($options)
+  -webkit-flex-flow: $options
+  flex-flow: $options
+
 @import client/grid/grid.sass
 @import client/panel/panel.sass
 
@@ -85,5 +89,5 @@ header
 .gameplay
   margin: 0 auto
   +display-flex
-  flex-flow: row wrap
+  +flex-flow(row wrap)
   max-width: 900px
