@@ -52,12 +52,12 @@ header
     margin-top: 5px
     font: 1.15em $font-stack
     color: $background-color
-    letter-spacing: 0.75px
+    letter-spacing: 0.5px
 
   em
     font: italic 1em $font-stack
     color: $background-color
-    letter-spacing: 1px
+    letter-spacing: 0.5px
 
 .title-tag
   font: bold 3em $font-stack
@@ -85,17 +85,35 @@ header
       font: bold 0.75em $font-stack
       color: $font-light
       text-transform: uppercase
-      letter-spacing: 0.25px
+      letter-spacing: 0.5px
 
     p
       font: bold 2em $font-stack
       color: $font-light
 
 .container
-  width: 100%
+  width: 95%
+  margin: 0 auto
 
 .gameplay
   margin: 0 auto
   +display-flex
   +flex-flow(row wrap)
   max-width: 900px
+
+.how-to
+  max-width: 500px
+  margin: 10px auto
+  text-align: justify
+  font: 1.05em $font-stack
+  color: $background-color
+  letter-spacing: 0.5px
+
+  span
+    letter-spacing: 0.25px
+    font-weight: bold
+    text-transform: uppercase
+
+  hr
+    margin: 20px 0
+
